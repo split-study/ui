@@ -1,4 +1,7 @@
 export const getNumberFromString = (str: string): number => {
-  const match = str.match(/(\d+(\.\d+)?)/);
-  return match ? parseFloat(match[0]) : 0;
+  const numberString = str.match(/[\d.,]+/)![0];
+
+  const formattedNumber = numberString.replace(/,/g, '');
+
+  return +formattedNumber;
 };
